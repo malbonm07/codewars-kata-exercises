@@ -1,0 +1,77 @@
+function encrypt(text, n) {
+  
+  let textArray = text.split("")
+
+  let secondChars = []
+  let otherChars = []
+  
+  if(n == 0 || n == -1) {
+    return text;
+  }
+
+  for(let i=0; i<n; i++) {
+    
+    secondChars.splice(0)
+    otherChars.splice(0)
+    for(let x=1; x<=textArray.length; x+=2) {
+      if(textArray[x])
+      secondChars.push(textArray[x])
+      otherChars.push(textArray[x-1])
+    }
+
+    textArray = secondChars.concat(otherChars)
+  }
+  let encryptText = secondChars.concat(otherChars).join("")
+  return encryptText;
+}
+
+
+function decrypt(encryptedText, n) {
+    
+
+    let findIndexUpp = function(str) {
+    let sL = str.length
+    for (let i=0; i < sL; i++) {
+    if (str.charAt(i) === str.charAt(i).toUpperCase() && str[i] != " " && 
+       str[i] != "!") {
+       return i;
+       }
+      }
+     }
+
+    if(n == 0 || n == -1){
+    return encryptedText
+    
+  }
+  
+    function encrypt(text, number) {
+
+        let textArray = text.split("")
+
+        let secondChars = []
+        let otherChars = []
+
+        for(let i=0; i<number; i++) {
+
+          secondChars.splice(0)
+          otherChars.splice(0)
+          for(let x=1; x<=textArray.length; x+=2) {
+            if(textArray[x])
+            secondChars.push(textArray[x])
+            otherChars.push(textArray[x-1])
+          }
+          textArray = secondChars.concat(otherChars)
+        }
+        let encrypt = secondChars.concat(otherChars).join("")
+        return encrypt;
+      }
+  
+    let decryptText = encryptedText
+  
+  for(let y=0; y<1000; y++) {
+    if(findIndexUpp(decryptText) != 0) {  
+      decryptText = encrypt(encryptedText,n+y)  
+    }
+  }
+  return decryptText;
+}
