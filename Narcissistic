@@ -1,0 +1,25 @@
+function narcissistic() {
+  let len, sum = 0;
+	const number = document.getElementById("number").value;
+
+  len = number.toString().length;
+  
+  if (isNaN(number) || len ===1) {
+	  let text = 'Please enter an integer and make sure it\'s more than 1-digit!';
+		return (
+      document.getElementById("output").innerHTML = text
+		);
+	}
+
+  for (let i = 0; i < len; i++) {
+	  sum += Math.pow(number[i], len);
+	}
+
+		if (sum == number) {
+		  		text = number + ' is a narcissistic number';
+		  		document.getElementById("output").innerHTML = text;
+		  	} else {
+		  		text = number + ' is NOT a narcissistic number';
+		  		document.getElementById("output").innerHTML = text;
+		  	}
+}
