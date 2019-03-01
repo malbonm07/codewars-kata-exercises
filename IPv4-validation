@@ -1,0 +1,27 @@
+function isValidIP(str) {
+
+  let strArr = str.split('.');
+  let valid = false
+  
+  if(strArr.length !== 4){
+    valid = false;
+   } 
+    
+    else{
+     
+      strArr.forEach((val) => {
+        console.log('val', val)
+        if(val <= 0 || val >= 255){
+        valid = false
+        }
+        else if(typeof val !== Number){
+          valid = false
+        }
+         else if(val[0] !== '0'){
+           valid = true;
+          }
+           })
+    } 
+    return valid    
+
+}
