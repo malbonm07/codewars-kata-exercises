@@ -1,0 +1,19 @@
+function narcissistic(value) {
+  let exponent = String(value).split("").length
+  let toNum = String(value).split("").map(a => {
+    return Number(a)
+  })
+  
+  function toPowOf(num,powerOf) {
+    return Math.pow(num, powerOf);
+  }
+ 
+  let result = toNum.map(n => toPowOf(n,exponent)).reduce((a,b) => a + b)
+  
+  if(value === result) {
+    return true;
+  }else{
+    return false;
+  }
+  
+}
