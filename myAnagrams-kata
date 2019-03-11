@@ -1,0 +1,14 @@
+function anagrams(word, words) {
+
+  let args = [...words]
+  let result = []
+  let wordSort = word.split("").sort().join("")
+  
+  for(let i=0; i<args.length; i++) {
+    let checkWord = args[i].split("").sort().join("")
+    if(checkWord === wordSort) {
+      result.push(args[i])
+    }
+  }
+  return result;
+}
