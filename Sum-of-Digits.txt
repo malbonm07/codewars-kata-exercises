@@ -1,0 +1,22 @@
+function digital_root(n) {
+  
+  function takeNumbersArray(number) {
+     return String(number).split("")
+   }
+  
+  let numbersArray = takeNumbersArray(n)
+  
+  function sumOfDigits(nums) { 
+    let result = nums.map(a => {
+      return Number(a)
+    }).reduce((a,b) => a+b)
+    return takeNumbersArray(result)
+  }
+ 
+  do {   
+    numbersArray = sumOfDigits(numbersArray);  
+  } while(numbersArray.length > 1);
+  
+  return Number(numbersArray)
+     
+}
