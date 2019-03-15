@@ -1,0 +1,21 @@
+function titleCase(title, minorWords) {
+  
+  if(title === '') {
+    return title
+  }else if (!minorWords){
+    return title.toLowerCase().split(" ").map(a => a.charAt(0).toUpperCase() + a.slice(1)).join(" ")
+  }else{
+ 
+    let convertToLower = function(words) {
+      return words.split(" ").map(a => a.toLowerCase())
+    }
+
+    let newTitle = convertToLower(title)
+    let newMinorWords = convertToLower(minorWords)
+
+    let result = newTitle.map(a => newMinorWords.indexOf(a) >= 0 ? a : a.replace(a[0], a[0].toUpperCase())).join(" ")
+
+    return result.charAt(0).toUpperCase() + result.slice(1);
+
+  }
+}
