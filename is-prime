@@ -1,0 +1,16 @@
+function isPrime(num) {
+  
+  if(num === 0 || num === 1 || num === -1 ) {
+    return false
+  }else{
+    let numArrays = []
+    for(let i=2; i<num; i++) {
+    numArrays.push(i)
+    }
+    let result = numArrays.filter(primo => {
+    return num % primo === 0
+    })
+  
+    return result == false    
+  }
+}
